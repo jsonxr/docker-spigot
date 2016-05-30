@@ -4,7 +4,7 @@ services:
 
   mcsurvival:
     container_name: mc-survival
-    image: jsonxr/minecraft-spigot:1.9
+    image: jsonxr/spigot:1.9.4
     restart: always
     ports:
       - '25565:25565'
@@ -12,10 +12,13 @@ services:
     volumes_from:
       - data-mcsurvival
 
-  data-mcsurvival:
-    container_name: data-mcsurvival
-    image: jsonxr/minecraft-spigot:1.9
-    command: 'true'
-    volumes:
-      - /minecraft
+  # data-mcsurvival:
+  #   container_name: data-mcsurvival
+  #   image: jsonxr/minecraft-spigot:1.9
+  #   command: 'true'
+  #   volumes:
+  #     - /minecraft
 
+networks:
+  default:
+    driver: bridge

@@ -2,10 +2,11 @@
 
 Modify Dockerfile.
 Change SPIGOT_VERSION
+Update dynmap perhaps? https://www.spigotmc.org/resources/dynmap.274/
 Push to docker hub
 
-    docker build --tag=jsonxr/minecraft-spigot:1.9.2 .
-    docker push jsonxr/minecraft-spigot:1.9.2
+    docker build --tag=jsonxr/spigot:1.9.4 .
+    docker push jsonxr/spigot:1.9.4
 
 # Running
 
