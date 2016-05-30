@@ -1,4 +1,3 @@
 #!/bin/sh -e
 
-docker build --tag=jsonxr/spigot:1.9.4 .
-#docker push jsonxr/spigot:1.9.4
+docker build .
