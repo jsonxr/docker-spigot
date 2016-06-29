@@ -9,7 +9,7 @@ RUN apk add git &&\
     mkdir /minecraft-build && \
     cd /minecraft-build && \
     wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar && \
-    HOME=/minecraft-build java -jar BuildTools.jar --rev 1.10
+    HOME=/minecraft-build java -jar BuildTools.jar
 
 # Copy start script and defaults
 COPY /src/ /
