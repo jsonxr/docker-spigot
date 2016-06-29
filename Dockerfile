@@ -1,4 +1,4 @@
-FROM jsonxr/java:alpine
+FROM jsonxr/java
 
 MAINTAINER jsonxr <jsonxr@gmail.com>
 
