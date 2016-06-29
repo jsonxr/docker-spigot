@@ -4,7 +4,7 @@ MAINTAINER jsonxr <jsonxr@gmail.com>
 
 ENV SPIGOT_VERSION=1.10
 
-RUN apk add git &&\
+RUN apk --update add git &&\
     adduser -s /bin/bash -h /minecraft -D minecraft && \
     mkdir /minecraft-build && \
     cd /minecraft-build && \
