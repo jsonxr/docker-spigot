@@ -1,11 +1,13 @@
-FROM jsonxr/java
+FROM java:8
 
 MAINTAINER jsonxr <jsonxr@gmail.com>
 
 ENV SPIGOT_VERSION=1.10
 
-RUN apk --update add git &&\
-    adduser -s /bin/bash -h /minecraft -D minecraft && \
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y wget git && \
+    apt-get clean all && \
+    useradd -s /bin/bash -d /minecraft -m minecraft && \
     mkdir /minecraft-build && \
     cd /minecraft-build && \
     wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar && \
