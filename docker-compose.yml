@@ -4,13 +4,16 @@ services:
 
   mcsurvival:
     container_name: mc-survival
-    image: jsonxr/spigot:1.9.4
+    image: jsonxr/spigot:1.10
     restart: always
+    environment:
+      MEMORY_MAX: 4096M
     ports:
       - '25565:25565'
       - '80:8123'
     volumes_from:
-      - data-mcsurvival
+      - container:data-mcsurvival
+  #    - data-mcsurvival
 
   # data-mcsurvival:
   #   container_name: data-mcsurvival

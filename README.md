@@ -50,4 +50,4 @@ In the home directory, backup.tar must exist for the following command to work.
 
 # Look at data
 
-    docker run --rm --volumes-from data-mcsurvival -v $(pwd):/backup ubuntu bash
+    docker run -it --rm --volumes-from data-mcsurvival -v $(pwd):/backup ubuntu bash
