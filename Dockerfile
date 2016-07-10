@@ -22,4 +22,4 @@ WORKDIR /minecraft
 VOLUME /minecraft
 
 #set default command
-CMD java -Xms512M -jar spigot.jar
+CMD ["java", "-Xms512M", "-jar", "spigot.jar"]
