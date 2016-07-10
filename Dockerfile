@@ -20,8 +20,6 @@ COPY /src/ /
 EXPOSE 25565
 WORKDIR /minecraft
 VOLUME /minecraft
-ENV MEMORY_MIN=512M
-ENV MEMORY_MAX=2048M
 
 #set default command
-CMD ["/start.sh"]
+CMD java -Xms512M -jar spigot.jar

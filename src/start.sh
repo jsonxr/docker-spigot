@@ -25,4 +25,4 @@ if [ ! -f /minecraft/eula.txt ]; then
 fi
 
 
-java -Xms$MEMORY_MIN -Xmx$MEMORY_MAX -jar spigot.jar
+java -Xms$MEMORY_MIN -jar spigot.jar
