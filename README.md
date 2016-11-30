@@ -2,23 +2,38 @@
 
 Create a branch off of master with the version...
 
-git checkout -b 1.9.4
+git checkout -b 1.11
 Modify Dockerfile
 Change SPIGOT_VERSION
-Consider updating dynmap: https://www.spigotmc.org/resources/dynmap.274/
-./build
 
-Once 1.9.4 is correct, you can create a new tag by branching off 1.9.4
-git checkout -b 1.9
+Update following plugins:
+* dynmap: https://www.spigotmc.org/resources/dynmap.274/
+* World Guard: https://dev.bukkit.org/bukkit-plugins/worldguard/
+
+bin/build
 
 Automated build upon checkin to jsonxr/spigot
 
-    docker build --tag=jsonxr/spigot:1.9.4 .
-    docker push jsonxr/spigot:1.9.4
+    docker build --tag=jsonxr/spigot:1.11 .
+    docker push jsonxr/spigot:1.11
 
 # Running
 
+    # First Time
     docker-compose -p minecraft up -d
+
+    # After upgrade
+    container_name: mc-survival
+    image: jsonxr/spigot:1.11
+    restart: always
+    ports:
+      - '25565:25565'
+      - '80:8123'
+    volumes_from:
+      - data-mcsurvival
+
+    docker pull jsonxr/spigot:latest
+    docker run --name=mc-survival -it --volumes-from data-mcsurvival -p '25565:25565' -p '80:8123' --restart=always jsonxr/spigot:latest
 
 # Upgrading
 

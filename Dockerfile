@@ -2,7 +2,7 @@ FROM java:8
 
 MAINTAINER jsonxr <jsonxr@gmail.com>
 
-ENV SPIGOT_VERSION=1.10
+ENV SPIGOT_VERSION=1.11
 
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y wget git && \
@@ -11,7 +11,7 @@ RUN apt-get update && \
     mkdir /minecraft-build && \
     cd /minecraft-build && \
     wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar && \
-    HOME=/minecraft-build java -jar BuildTools.jar
+    HOME=/minecraft-build java -jar BuildTools.jar --rev 1.11
 
 # Copy start script and defaults
 COPY /src/ /
@@ -22,4 +22,4 @@ WORKDIR /minecraft
 VOLUME /minecraft
 
 #set default command
-CMD ["java", "-Xms512M", "-jar", "spigot.jar"]
+CMD ["java", "-Xms1024M", "-Xmx4096M", "-jar", "spigot.jar"]
