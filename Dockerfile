@@ -11,7 +11,7 @@ RUN apt-get update && \
     mkdir /minecraft-build && \
     cd /minecraft-build && \
     wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar && \
-    HOME=/minecraft-build java -jar BuildTools.jar --rev 1.13.2
+    HOME=/minecraft-build java -Xmx1024M -jar BuildTools.jar --rev 1.13.2
 
 # Copy start script and defaults
 COPY /src/ /
@@ -22,4 +22,4 @@ WORKDIR /minecraft
 VOLUME /minecraft
 
 #set default command
-CMD ["java", "-Xms512M", "-jar", "spigot.jar"]
+CMD ["java", "-Xms1024M", "-jar", "spigot.jar"]

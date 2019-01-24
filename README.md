@@ -18,7 +18,7 @@ Automated build upon checkin to jsonxr/spigot
 
 # Running
 
-    docker-compose -p minecraft up -d
+    docker-compose up -d
 
 # Upgrading
 
