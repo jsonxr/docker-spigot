@@ -2,23 +2,14 @@ version: '2'
 
 services:
 
-  mcsurvival:
-    container_name: mc-survival
-    image: jsonxr/spigot:1.9.4
+  spigot:
+    container_name: spigot
+    image: jsonxr/spigot
     restart: always
     ports:
       - '25565:25565'
-      - '80:8123'
-    volumes_from:
-      - data-mcsurvival
-
-  # data-mcsurvival:
-  #   container_name: data-mcsurvival
-  #   image: jsonxr/minecraft-spigot:1.9
-  #   command: 'true'
-  #   volumes:
-  #     - /minecraft
-
-networks:
-  default:
-    driver: bridge
+      - '8123:8123'
+    working_dir: /minecraft
+    volumes:
+      - ./minecraft:/minecraft
+    command: /minecraft/start.sh
