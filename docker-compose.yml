@@ -6,6 +6,8 @@ services:
     container_name: spigot
     image: jsonxr/spigot
     restart: always
+    environment:
+      MEMORY_MIN: 1024M
     ports:
       - '25565:25565'
       - '8123:8123'
