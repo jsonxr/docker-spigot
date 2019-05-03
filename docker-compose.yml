@@ -4,7 +4,7 @@ services:
   spigot:
     container_name: spigot
     stdin_open: true
-    image: jsonxr/spigot:1.12
+    image: jsonxr/spigot:1.14
     restart: always
     ports:
       - '25565:25565'

@@ -1,7 +1,7 @@
 # Running
 
       # install/update minecraft world
-      docker run --name spigot -it --rm -v $(pwd)/minecraft:/minecraft jsonxr/spigot:1.12 /minecraft-build/install
+      docker run --name spigot -it --rm -v $(pwd)/minecraft:/minecraft jsonxr/spigot:1.14 /minecraft-build/install
 
       # Run minecraft
       docker-compose up -d
