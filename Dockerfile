@@ -1,4 +1,4 @@
-FROM openjdk:8
+FROM openjdk:11
 
 MAINTAINER jsonxr <jsonxr@gmail.com>
 
@@ -24,4 +24,4 @@ COPY /src/ /
 WORKDIR /minecraft
 
 #set default command
-CMD ["java", "-Xms1G", "-Xmx1G", "-jar", "spigot.jar"]
+CMD ["java", "-server", "-Xms1G", "-Xmx1G", "-XX:+UseG1GC", "-jar", "spigot.jar"]

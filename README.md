@@ -11,18 +11,12 @@
 
 # Building docker image
 
+This creates a docker image in hub.docker.com
+
 Create a branch off of master with the version...
 
 git checkout -b 1.9.4
 Modify Dockerfile
 Change SPIGOT_VERSION
 Consider updating dynmap: https://www.spigotmc.org/resources/dynmap.274/
-./build
-
-Once 1.9.4 is correct, you can create a new tag by branching off 1.9.4
-git checkout -b 1.9
-
-Automated build upon checkin to jsonxr/spigot
-
-    docker build --tag=jsonxr/spigot:1.9.4 .
-    docker push jsonxr/spigot:1.9.4
+docker build .
