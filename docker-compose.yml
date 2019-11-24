@@ -10,7 +10,7 @@ services:
       - '25565:25565'
       - '80:8123'
     volumes:
-      - ./minecraft:/minecraft
+      - ./minecraft-${SPIGOT_VERSION}:/minecraft
 
 networks:
   default:

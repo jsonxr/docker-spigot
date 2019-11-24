@@ -2,6 +2,9 @@ FROM openjdk:11
 
 MAINTAINER jsonxr <jsonxr@gmail.com>
 
+ARG SPIGOT_VERSION=1.14.4
+ENV SPIGOT_VERSION=${SPIGOT_VERSION}
+
 # expose minecraft ports
 EXPOSE 25565
 EXPOSE 8123
@@ -12,8 +15,6 @@ RUN apt-get update && apt-get install -y git && apt-get clean all
 #RUN yum update --assumeyes && yum install --assumeyes git && yum clean all
 
 # Install spigot
-ARG SPIGOT_VERSION=unknown
-ENV SPIGOT_VERSION=${SPIGOT_VERSION}
 RUN useradd -s /bin/bash -d /minecraft -m minecraft && \
   mkdir /minecraft-build && \
   cd /minecraft-build && \
