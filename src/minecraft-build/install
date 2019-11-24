@@ -5,7 +5,7 @@ echo "Copying minecraft files into the proper location..."
 echo "eula=true" > /minecraft/eula.txt
 
 # copy the contents of the minecraft folder over
-cp /minecraft-build/spigot*.jar /minecraft/spigot.jar
+cp /minecraft-build/spigot-${SPIGOT_VERSION}.jar /minecraft/spigot.jar
 cp -R -f /minecraft-build/minecraft/* /minecraft
 
 # copy the default settings if they don't already exist

@@ -1,22 +1,19 @@
-# Running
+# Build
 
-      # install/update minecraft world
-      docker run --name spigot -it --rm -v $(pwd)/minecraft:/minecraft jsonxr/spigot:1.14 /minecraft-build/install
+    # Needed for envsubst
+    brew install gettext
+    brew link --force gettext
+    # Build
+    export SPIGOT_VERSION=1.14.4
+    bin/build
+    bin/install
 
-      # Run minecraft
-      docker-compose up -d
+# Run
 
-      # To gt a server command prompt
-      docker attach --sig-proxy=false spigot
+    cd minecraft-$SPIGOT_VERSION
+    docker-compose up -d
 
-# Building docker image
+# Minecraft Prompt
 
-This creates a docker image in hub.docker.com
-
-Create a branch off of master with the version...
-
-git checkout -b 1.9.4
-Modify Dockerfile
-Change SPIGOT_VERSION
-Consider updating dynmap: https://www.spigotmc.org/resources/dynmap.274/
-docker build .
+    docker attach --sig-proxy=false spigot
+    # To detach...  CTRL-c

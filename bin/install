@@ -1,0 +1,15 @@
+#!/bin/sh -e
+
+# Create minecraft directory
+mkdir minecraft-${SPIGOT_VERSION}
+cd minecraft-${SPIGOT_VERSION}
+
+# Install new server directory
+docker run -it --rm \
+  --name spigot \
+  -v $(pwd)/minecraft:/minecraft \
+  jsonxr/spigot:${SPIGOT_VERSION} \
+  /minecraft-build/install
+
+# Copy docker compose file here..
+envsubst < ../docker-compose.yml > docker-compose.yml
